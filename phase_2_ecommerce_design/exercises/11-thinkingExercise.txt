@@ -1,0 +1,29 @@
+Think about the answer.
+
+1.) Why does order_items exist?
+a) It resolves the many-to-many relationship.
+- One order can contain many products.
+- One product can appear in many orders.
+- A relational database cannot represent this directly, so order_items acts as the junction table.
+
+b) It stores information about each product within an order.
+- quantity
+- unit_price
+
+Why is unit_price stored in order_items instead of using products.price?
+Because product price is subject to change, but the actual amount user paid while purchasing should be the source of truth for a user.
+
+Why is total_price stored in orders even though it can be calculated?
+This is done in order to save query time. If we dont user total_price, we will be forced to query on order_items -> SUM(unit_price), this will make the operation slow. Instead we decide to store the total_price as well in an order.
+
+Why is status an enum but products are stored in a table?
+Because products are variable, they can be anything, any name. But status can not be more than few values. ENUMs allows us to type a column with exactly the value we define.
+
+Which relationships are One-to-One?
+These are db relationship in which only one row in one table is related to one row in another table. Example: Each user has only one profile (each user row in user table is related to one row in profiles table).
+
+Which are One-to-Many?
+These are the ones in which one row from one table can be related to multiple rows in another table. Just like users->orders in our ecom database.
+
+Which are Many-to-Many?
+Many-to-Many relations are ones in which multiple rows of one table are related to multiple rows of another table. Like students <-> courses, Like orders <-> products in ecom.
