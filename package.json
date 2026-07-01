@@ -1,0 +1,28 @@
+{
+  "name": "database-lab",
+  "version": "1.0.0",
+  "description": "docker run \\ --name postgres-lab \\ -e POSTGRES_PASSWORD=password \\ -p 5432:5432 \\ -d postgres:17",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shilendra-cse/database-lab.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/shilendra-cse/database-lab/issues"
+  },
+  "homepage": "https://github.com/shilendra-cse/database-lab#readme",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "pg": "^8.22.0"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^10.5.0"
+  }
+}
